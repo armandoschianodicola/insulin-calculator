@@ -1,0 +1,40 @@
+<div class="container">
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <table class="table table-bordered" formArrayName="quantities">
+      <tr>
+        <th width="150px">
+          <button type="button" (click)="addQuantity()" class="btn btn-primary">
+            Aggiungi
+          </button>
+        </th>
+      </tr>
+      <tr
+        *ngFor="let quantity of quantities().controls; let i = index"
+        [formGroupName]="i"
+      >
+        <td>
+          Grammi:
+          <input type="number" (input)="onInput($event)" formControlName="qty" class="form-control" />
+        </td>
+        <td>
+          Carboidrati (per 100g):
+          <input type="number" formControlName="carbs" class="form-control" />
+        </td>
+        <td>
+          Totale Carboidrati:
+          <input type="number" formControlName="total_carbs" class="form-control" />
+        </td>
+        <td>
+          <button (click)="removeQuantity(i)" class="btn btn-danger">
+            Rimuovi
+          </button>
+        </td>
+      </tr>
+    </table>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+
+  <br />
+  {{ this.productForm.value | json }}
+</div>
