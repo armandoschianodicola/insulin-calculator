@@ -1,13 +1,14 @@
 .container {
-    max-width: 600px;
+    max-width: 700px;
     background: #fff;
     border-radius: 5px;
-    width: 600px;
+    width: 700px;
     padding: 20px;
     box-shadow: 0 2px 2px 3px rgba(0, 0, 0, 0.1)  
 }
 
 .flex {
     display: flex;
-    gap: 1.5em
+    gap: 1.5em;
+    margin-bottom: 15px;
 }
