@@ -1,4 +1,7 @@
-@import './styles/0-globals/global';
-@import './styles/0-globals/base';
+@import './styles/0-helpers/mixin';
 
-@import './styles/1-elements/inputs'
+@import './styles/1-globals/global';
+@import './styles/1-globals/base';
+
+@import './styles/2-elements/input';
+@import './styles/2-elements/button';

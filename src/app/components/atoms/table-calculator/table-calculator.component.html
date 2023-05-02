@@ -1,9 +1,12 @@
 <div class="container">
   <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
     <div formArrayName="quantities">
-      <button type="button" (click)="addQuantity()" class="btn btn-primary">
-        Aggiungi
-      </button>
+      <div class="flex">
+        <h2>Aggiungi quantità</h2>
+        <button type="button" (click)="addQuantity()" class="add">
+          &plus;
+        </button>
+      </div>
       <div
         *ngFor="let quantity of quantities().controls; let i = index"
         [formGroupName]="i"
@@ -13,31 +16,36 @@
           type="number"
           (input)="onInput($event)"
           formControlName="qty"
-          class="form-control"
+          class="form-control input-control"
           placeholder="Grammi"
         />
         <input
           type="number"
           formControlName="carbs"
-          class="form-control"
+          class="form-control input-control"
           placeholder="Carboidrati (per 100g)"
         />
-        <input
+        <!-- <input
           type="number"
           formControlName="total_carbs"
-          class="form-control"
+          class="form-control input-control"
           placeholder="Totale Carboidrati"
-        />
-
-        <button (click)="removeQuantity(i)" class="btn btn-danger">
-          Rimuovi
+        /> -->
+        <button type="button" (click)="removeQuantity(i)" class="delete">
+          &times;
         </button>
       </div>
     </div>
-
-    <button type="submit" class="btn btn-success">Submit</button>
+    <!-- <button type="submit" class="btn btn-success">Submit</button> -->
   </form>
 
   <br />
-  {{ this.productForm.value | json }}
+  <div>
+    <span>Carboidrati totali:</span>
+    {{ this.getTotalCarbs() }}
+  </div>
+  <div>
+    <span>Insulina necessaria:</span>
+    {{ this.getInsulinValue() }}
+  </div>
 </div>
