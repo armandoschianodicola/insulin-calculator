@@ -10,4 +10,8 @@
     background: #eee;
     width: 50%;
     border-radius: 5px;
+
+    @include respond-to('mobile') {
+        width: 100%;
+    }
 }

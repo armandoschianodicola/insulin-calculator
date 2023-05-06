@@ -1,17 +1,27 @@
 .container {
-    max-width: 700px;
+    min-width: 480px;
     background: #fff;
     border-radius: 5px;
-    width: 700px;
     padding: 20px;
-    box-shadow: 0 2px 2px 3px rgba(0, 0, 0, 0.1)  
+    box-shadow: 0 2px 2px 3px rgba(0, 0, 0, 0.1);
+    
+    @include respond-to('mobile') {
+        width: 100%;
+        padding: 20px;
+        margin: 20px;
+    }
 }
 
 .flex {
     display: flex;
     gap: 1.5em;
     margin-bottom: 15px;
-    justify-content: space-between
+    justify-content: space-between;
+
+    @include respond-to('mobile') {
+        flex-direction: column;
+        width: 100%;
+    }
 }
 
 .input-control {
@@ -23,6 +33,10 @@
     background: #8bc34a;
     width: 30px;
     height: 30px;
+
+    @include respond-to('mobile') {
+        width: 100%;
+    }
 }
 
 .delete {
@@ -30,4 +44,8 @@
     background: #f44336;
     width: 35px;
     height: 30px;
+
+    @include respond-to('mobile') {
+        width: 100%;
+    }
 }
