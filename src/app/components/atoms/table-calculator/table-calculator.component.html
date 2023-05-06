@@ -13,17 +13,24 @@
         class="flex"
       >
         <input
-          type="number"
+          type="text"
           (input)="onInput($event)"
-          formControlName="qty"
+          formControlName="food"
           class="form-control input-control"
-          placeholder="Grammi"
+          placeholder="Alimento"
         />
         <input
           type="number"
           formControlName="carbs"
           class="form-control input-control"
           placeholder="Carboidrati (per 100g)"
+        />
+        <input
+          type="number"
+          (input)="onInput($event)"
+          formControlName="qty"
+          class="form-control input-control"
+          placeholder="Grammi somministrati"
         />
         <!-- <input
           type="number"
