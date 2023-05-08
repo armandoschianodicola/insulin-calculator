@@ -11,7 +11,11 @@ export class TableCalculatorComponent {
 
   name = 'Angular';  
     
-  productForm: FormGroup;  
+  productForm: FormGroup;
+  
+  current: number = 0
+  needed: number = 150
+  correction: number = 40
      
   constructor(private fb:FormBuilder) {  
      
@@ -27,6 +31,7 @@ export class TableCalculatorComponent {
      
   newQuantity(): FormGroup {  
     return this.fb.group({  
+      food: '',  
       qty: '',  
       carbs: '',  
       total_carbs: '',  
@@ -46,10 +51,7 @@ export class TableCalculatorComponent {
   }
   
   onInput(event: any) {
-    console.log(event)
     let fa = this.quantities() as FormArray
-    console.log(fa)
-    console.log(fa.at(2))
   }
 
   getTotalCarbs(): number {
@@ -61,9 +63,17 @@ export class TableCalculatorComponent {
     return result
   }
 
-  getInsulinValue(): number {
+  getInsulinFoodValue(): number {
     let result = this.getTotalCarbs() / 10
     return result
+  }
+
+  getInsulinTotalValue(): number {
+    let insulinFoodValue = this.getInsulinFoodValue()
+    let result = ((this.current - this.needed) / this.correction) + insulinFoodValue
+  
+    return result > 0 ? result : 0
+  
   }
 
 }

@@ -22,14 +22,22 @@
 
 .flex {
     display: flex;
-    gap: 1.5em;
-    margin-bottom: 15px;
+    gap: 1em;
+    margin-bottom: 10px;
     justify-content: space-between;
 
     @include respond-to('mobile') {
         flex-direction: column;
         width: 100%;
     }
+}
+
+.flex-column {
+    display: flex;
+    gap: 1em;
+    flex-direction: column;
+    margin-bottom: 10px;
+    justify-content: space-between;
 }
 
 .input-control {
@@ -50,8 +58,9 @@
 .delete {
     @include btn-control;
     background: #f44336;
-    width: 35px;
+    width: 55px;
     height: 30px;
+
 
     @include respond-to('mobile') {
         width: 100%;

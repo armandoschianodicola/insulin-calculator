@@ -2,7 +2,7 @@
   <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
     <div formArrayName="quantities">
       <div class="flex">
-        <h2>Aggiungi quantità</h2>
+        <h2>Calcolo Insulina</h2>
         <button type="button" (click)="addQuantity()" class="add">
           &plus;
         </button>
@@ -32,27 +32,40 @@
           class="form-control input-control"
           placeholder="Grammi somministrati"
         />
-        <!-- <input
-          type="number"
-          formControlName="total_carbs"
-          class="form-control input-control"
-          placeholder="Totale Carboidrati"
-        /> -->
         <button type="button" (click)="removeQuantity(i)" class="delete">
           &times;
         </button>
       </div>
     </div>
-    <!-- <button type="submit" class="btn btn-success">Submit</button> -->
   </form>
-
   <br />
-  <div>
-    <span>Carboidrati totali:</span>
-    {{ this.getTotalCarbs() }}
+  <div class="flex">
+    <h2>Risultati</h2>
   </div>
-  <div>
-    <span>Insulina necessaria:</span>
-    {{ this.getInsulinValue() }}
+  <div class="flex-column">
+    <span>
+      <label for="total_carbs">Carboidrati Totali:</label>
+      {{ this.getTotalCarbs() }}
+    </span>
+    <div>
+      <span>Insulina per pasto:</span>
+      {{ this.getInsulinFoodValue() }}
+    </div>
+    <span>
+      <label for="correction">Fattore di Correzione:</label>
+      <input class="input-result" id="correction" type="number" [(ngModel)]="correction"/>
+    </span>
+    <span>
+      <label for="current">Glicemia attuale:</label>
+      <input class="input-result" id="current" type="number" [(ngModel)]="current"/>
+    </span>
+    <span>
+      <label for="needed">Glicemia desiderata:</label>
+      <input class="input-result" id="needed" type="number" [(ngModel)]="needed" />
+    </span>
+    <div>
+      <span>Insulina necessaria totale:</span>
+      {{ this.getInsulinTotalValue() }}
+    </div>
   </div>
 </div>
