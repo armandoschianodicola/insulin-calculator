@@ -5,21 +5,12 @@
   padding: 20px;
   margin: 20px;
   box-shadow: 0 2px 2px 3px rgba(0, 0, 0, 0.1);
-
-  // @include respond-to("smallTab") {
-  //   width: 100%;
-  //   padding: 20px;
-  //   margin: 20px;
-  //   flex-direction: column;
-  // }
-
 }
 
 .flex-column {
   display: flex;
   gap: 1em;
   flex-direction: column;
-  margin-bottom: 10px;
   justify-content: space-between;
 }
 
@@ -35,6 +26,7 @@
   border: 1px solid;
   border-radius: 5px;
   padding: 5px;
+  margin-bottom: 10px;
 
   @include respond-to("smallTab") {
     @include flex;
@@ -42,26 +34,21 @@
 }
 
 .add {
-  @include btn-control;
   background: #8bc34a;
-  width: 30px;
-  height: 30px;
+  border-radius: 8px;
+}
 
-  // @include respond-to("mobile") {
-  //   width: 100%;
-  // }
+.btn-control {
+  @include btn-control;
 }
 
 .delete {
   @include btn-control;
   background: #f44336;
+  border-radius: 8px;
   width: 55px;
   height: 30px;
 
-  // @include respond-to("mobile") {
-  //   width: 30px;
-  //   height: 30px;
-  // }
 }
 
 .flex-end {
@@ -69,16 +56,32 @@
   justify-content: flex-end;
 }
 
-// .mobile {
-//     @include respond-to("desktop") {
-//       display: none;
-//     }
-//   }
+.mobile {
+  @include respond-to("smallTab") {
+    display: none;
+  }
+}
 
-// .desktop,
-// .smallTab,
-// .tablet {
-//   @include respond-to("mobile") {
-//     display: none;
-//   }
-// }
+.desktop {
+
+  @media (max-width: 1200px) {
+    display: none;
+  }
+
+}
+
+.smallTab {
+
+  @media (max-width: 720px) {
+    display: none;
+  }
+  
+}
+
+.tablet {
+
+  @media (max-width: 960px) {
+    display: none;
+  }
+  
+}
