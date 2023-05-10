@@ -8,10 +8,13 @@
 @mixin input-control {
     padding: 8px 10px;
     background: #eee;
-    width: 50%;
     border-radius: 5px;
-
-    @include respond-to('mobile') {
-        width: 100%;
-    }
+    margin-bottom: 5px;
 }
+
+@mixin flex {
+    display: flex;
+    gap: 1em;
+    margin-bottom: 10px;
+    justify-content: space-between;
+  }

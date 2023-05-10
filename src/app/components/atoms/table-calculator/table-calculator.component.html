@@ -1,43 +1,53 @@
 <div class="container">
   <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
     <div formArrayName="quantities">
-      <div class="flex">
-        <h2>Calcolo Insulina</h2>
-        <button type="button" (click)="addQuantity()" class="add">
-          &plus;
-        </button>
-      </div>
+      <h2>Calcolo Insulina</h2>
       <div
         *ngFor="let quantity of quantities().controls; let i = index"
         [formGroupName]="i"
-        class="flex"
+        class="input-group"
       >
-        <input
-          type="text"
-          (input)="onInput($event)"
-          formControlName="food"
-          class="form-control input-control"
-          placeholder="Alimento"
-        />
-        <input
-          type="number"
-          formControlName="carbs"
-          class="form-control input-control"
-          placeholder="Carboidrati (per 100g)"
-        />
-        <input
-          type="number"
-          (input)="onInput($event)"
-          formControlName="qty"
-          class="form-control input-control"
-          placeholder="Grammi somministrati"
-        />
-        <button type="button" (click)="removeQuantity(i)" class="delete">
+        <div class="flex-end">
+          <button type="button" (click)="removeQuantity(i)" class="delete">
+            &times;
+          </button>
+        </div>
+        <div class="input-control">
+          <input
+            type="text"
+            (input)="onInput($event)"
+            formControlName="food"
+            placeholder="Alimento"
+          />
+        </div>
+        <div class="input-control">
+          <input
+            type="number"
+            formControlName="carbs"
+            placeholder="Carboidrati (per 100g)"
+          />
+        </div>
+        <div class="input-control">
+          <input
+            type="number"
+            (input)="onInput($event)"
+            formControlName="qty"
+            placeholder="Grammi somministrati"
+          />
+        </div>
+        <!-- <button
+          type="button"
+          (click)="removeQuantity(i)"
+          class="delete desktop"
+        >
           &times;
-        </button>
+        </button> -->
       </div>
     </div>
   </form>
+  <div class="flex">
+    <button type="button" (click)="addQuantity()" class="add">&plus;</button>
+  </div>
   <br />
   <div class="flex">
     <h2>Risultati</h2>
@@ -53,15 +63,30 @@
     </div>
     <span>
       <label for="correction">Fattore di Correzione:</label>
-      <input class="input-result" id="correction" type="number" [(ngModel)]="correction"/>
+      <input
+        class="input-result"
+        id="correction"
+        type="number"
+        [(ngModel)]="correction"
+      />
     </span>
     <span>
       <label for="current">Glicemia attuale:</label>
-      <input class="input-result" id="current" type="number" [(ngModel)]="current"/>
+      <input
+        class="input-result"
+        id="current"
+        type="number"
+        [(ngModel)]="current"
+      />
     </span>
     <span>
       <label for="needed">Glicemia desiderata:</label>
-      <input class="input-result" id="needed" type="number" [(ngModel)]="needed" />
+      <input
+        class="input-result"
+        id="needed"
+        type="number"
+        [(ngModel)]="needed"
+      />
     </span>
     <div>
       <span>Insulina necessaria totale:</span>

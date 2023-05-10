@@ -1,68 +1,84 @@
 .container {
-    width: 720px;
-    background: #fff;
-    border-radius: 5px;
-    padding: 20px;
-    margin: 20px;
-    box-shadow: 0 2px 2px 3px rgba(0, 0, 0, 0.1);
+  // width: 720px;
+  background: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 2px 2px 3px rgba(0, 0, 0, 0.1);
 
-    @include respond-to('smallTab') {
-        width: 100%;
-        padding: 20px;
-        margin: 20px;
-        flex-direction: column;
-    }
-    
-    @include respond-to('mobile') {
-        width: 100%;
-        padding: 20px;
-        margin: 20px;
-    }
-}
+  // @include respond-to("smallTab") {
+  //   width: 100%;
+  //   padding: 20px;
+  //   margin: 20px;
+  //   flex-direction: column;
+  // }
 
-.flex {
-    display: flex;
-    gap: 1em;
-    margin-bottom: 10px;
-    justify-content: space-between;
-
-    @include respond-to('mobile') {
-        flex-direction: column;
-        width: 100%;
-    }
 }
 
 .flex-column {
-    display: flex;
-    gap: 1em;
-    flex-direction: column;
-    margin-bottom: 10px;
-    justify-content: space-between;
+  display: flex;
+  gap: 1em;
+  flex-direction: column;
+  margin-bottom: 10px;
+  justify-content: space-between;
 }
 
 .input-control {
-    @include input-control
+  @include input-control;
+}
+
+.input-control > input {
+  background: #eee;
+}
+
+.input-group {
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 5px;
+
+  @include respond-to("smallTab") {
+    @include flex;
+  }
 }
 
 .add {
-    @include btn-control;
-    background: #8bc34a;
-    width: 30px;
-    height: 30px;
+  @include btn-control;
+  background: #8bc34a;
+  width: 30px;
+  height: 30px;
 
-    @include respond-to('mobile') {
-        width: 100%;
-    }
+  // @include respond-to("mobile") {
+  //   width: 100%;
+  // }
 }
 
 .delete {
-    @include btn-control;
-    background: #f44336;
-    width: 55px;
-    height: 30px;
+  @include btn-control;
+  background: #f44336;
+  width: 55px;
+  height: 30px;
 
-
-    @include respond-to('mobile') {
-        width: 100%;
-    }
+  // @include respond-to("mobile") {
+  //   width: 30px;
+  //   height: 30px;
+  // }
 }
+
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+// .mobile {
+//     @include respond-to("desktop") {
+//       display: none;
+//     }
+//   }
+
+// .desktop,
+// .smallTab,
+// .tablet {
+//   @include respond-to("mobile") {
+//     display: none;
+//   }
+// }
