@@ -11,7 +11,6 @@
   display: flex;
   gap: 1em;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .input-control {
@@ -20,11 +19,12 @@
 
 .input-control > input {
   background: #eee;
+  padding: 8px;
 }
 
 .input-group {
-  border: 1px solid;
-  border-radius: 5px;
+  // border: 1px solid;
+  // border-radius: 5px;
   padding: 5px;
   margin-bottom: 10px;
 
@@ -35,7 +35,6 @@
 
 .add {
   background: #8bc34a;
-  border-radius: 8px;
 }
 
 .btn-control {
@@ -43,12 +42,9 @@
 }
 
 .delete {
-  @include btn-control;
   background: #f44336;
-  border-radius: 8px;
-  width: 55px;
-  height: 30px;
-
+  // width: 55px;
+  // height: 30px;
 }
 
 .flex-end {
