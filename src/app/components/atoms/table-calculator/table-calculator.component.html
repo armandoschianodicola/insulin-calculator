@@ -1,6 +1,6 @@
 <div class="container">
   <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
-    <div formArrayName="quantities flex-column">
+    <div formArrayName="quantities" class="flex-column">
       <h2>Calcolo Insulina</h2>
       <div
         *ngFor="let quantity of quantities().controls; let i = index"
@@ -21,9 +21,9 @@
         <div class="input-control">
           <input
             type="text"
-            (input)="onInput($event)"
             formControlName="food"
             placeholder="Alimento"
+            class="form-control"
           />
         </div>
         <div class="input-control">
@@ -31,14 +31,16 @@
             type="number"
             formControlName="carbs"
             placeholder="Carboidrati (per 100g)"
+            class="form-control"
           />
         </div>
         <div class="input-control">
           <input
             type="number"
-            (input)="onInput($event)"
             formControlName="qty"
             placeholder="Grammi somministrati"
+            (input)="onInput($event)"
+            class="form-control"
           />
         </div>
         <div class="input-control delete smallTab">
@@ -47,14 +49,17 @@
           </button>
         </div>
       </div>
-      <div class="input-group">
-        <button type="button" (click)="addQuantity()" class="add btn-control">
+      <div class="input-group" (click)="addQuantity()">
+        <button type="button" class="add btn-control">
           &plus;
         </button>
       </div>
     </div>
   </form>
   <br />
+  <p>
+    <button type="submit" [disabled]="!productForm.valid">Submit</button>
+  </p>
   <div class="flex">
     <h2>Risultati</h2>
   </div>

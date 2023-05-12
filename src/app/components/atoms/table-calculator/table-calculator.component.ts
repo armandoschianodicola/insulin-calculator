@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup , FormControl, AbstractControl} from '@angular/forms';
-import { AnonymousSubject } from 'rxjs/internal/Subject';
 
 @Component({
   selector: 'app-table-calculator',
@@ -38,8 +37,9 @@ export class TableCalculatorComponent {
     })  
   }  
      
-  addQuantity() {  
-    this.quantities().push(this.newQuantity());  
+  addQuantity() { 
+    this.quantities().push(this.newQuantity());
+    console.log(this.productForm.value.quantities)   
   }  
      
   removeQuantity(i:number) {  
@@ -49,11 +49,13 @@ export class TableCalculatorComponent {
   onSubmit() {  
     console.log(this.productForm.value);  
   }
-  
-  onInput(event: any) {
-    let fa = this.quantities() as FormArray
-  }
 
+  onInput(event: any) {
+    console.log(event)
+    let fa = this.quantities() as FormArray
+    console.log(fa)
+  }
+  
   getTotalCarbs(): number {
     let quantities = this.productForm.value.quantities
     let result: number = 0
