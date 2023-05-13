@@ -7,6 +7,33 @@
   box-shadow: 0 2px 2px 3px rgba(0, 0, 0, 0.1);
 }
 
+.select-filterbar {
+  width: 100%;
+  height: 100%;
+}
+
+// .container-dropdown {
+//   position: relative;
+//   // width: 100%;
+//   .select-filterbar {
+//     // max-width: 130px;
+//     // min-width: 100px;
+//     @include input-control;
+//   }
+//   // img {
+//   //   position: absolute;
+//   //   top: 9px;
+//   //   right: 8px;
+//   //   width: 20px;
+//   //   height: 20px;
+//   //   padding: 4px;
+//   //   background-color: white;
+//   //   pointer-events: none;
+//   //   display: grid;
+//   //   place-items: center;
+//   // }
+// }
+
 .flex-column {
   display: flex;
   gap: 1em;
@@ -59,25 +86,19 @@
 }
 
 .desktop {
-
   @media (max-width: 1200px) {
     display: none;
   }
-
 }
 
 .smallTab {
-
   @media (max-width: 720px) {
     display: none;
   }
-  
 }
 
 .tablet {
-
   @media (max-width: 960px) {
     display: none;
   }
-  
 }

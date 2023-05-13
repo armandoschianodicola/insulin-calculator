@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { TableCalculatorComponent } from './components/atoms/table-calculator/table-calculator.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InputGroupComponent } from './components/atoms/input-group/input-group.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     TableCalculatorComponent,
+    InputGroupComponent,
   ],
   imports: [
     BrowserModule,

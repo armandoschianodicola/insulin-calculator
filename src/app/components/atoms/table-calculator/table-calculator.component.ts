@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup , FormControl, AbstractControl} from '@angular/forms';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-table-calculator',
@@ -8,56 +7,57 @@ import { FormArray, FormBuilder, FormGroup , FormControl, AbstractControl} from 
 })
 export class TableCalculatorComponent {
 
-  name = 'Angular';  
-    
-  productForm: FormGroup;
+  @Input() key: any = '';
+  @Input() label: string = '';
+  // @Input() options: any[] = [];
+  input_array: any[] = []
+
+
+  value = 'Alimento'
+  placeholder = 'Alimento'
+
+  options = [
+    {
+      "label": "a", "value": 4
+    },
+    {
+      "label": "b", "value": 5
+    },
+  ]
   
   current: number = 0
   needed: number = 150
   correction: number = 40
-     
-  constructor(private fb:FormBuilder) {  
-     
-    this.productForm = this.fb.group({  
-      name: '',  
-      quantities: this.fb.array([]) ,  
-    });  
-  }  
-    
-  quantities() : FormArray {  
-    return this.productForm.get("quantities") as FormArray  
-  }  
-     
-  newQuantity(): FormGroup {  
-    return this.fb.group({  
+        
+  newQuantity(): {} {  
+    return {  
       food: '',  
-      qty: '',  
-      carbs: '',  
-      total_carbs: '',  
-    })  
+      qty: 0,  
+      carbs: 0,  
+      total_carbs: 0,  
+    } 
   }  
      
   addQuantity() { 
-    this.quantities().push(this.newQuantity());
-    console.log(this.productForm.value.quantities)   
+    this.input_array.push(this.newQuantity());
   }  
-     
-  removeQuantity(i:number) {  
-    this.quantities().removeAt(i);  
-  }  
-     
-  onSubmit() {  
-    console.log(this.productForm.value);  
+      
+  onSelect(e: Event, i: any) {
+    let value = (<HTMLSelectElement>e.target).value
+    // this.productForm.value.quantities[i].carbs = value
   }
 
-  onInput(event: any) {
-    console.log(event)
-    let fa = this.quantities() as FormArray
-    console.log(fa)
+  getValue(): any {
+    let res = this.placeholder;
+    if (this.value) {
+      let arr = this.options.filter((el: any) => el.value == this.value);
+      if (arr.length > 0) res = arr[0].label;
+    }
+    return res;
   }
   
   getTotalCarbs(): number {
-    let quantities = this.productForm.value.quantities
+    let quantities = this.input_array
     let result: number = 0
     quantities.forEach((e: { qty: number; carbs: number }) => {
       result += ((e.qty * e.carbs) / 100)

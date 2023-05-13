@@ -1,0 +1,51 @@
+<div class="flex-end mobile">
+  <div class="input-control delete">
+    <button
+      type="button"
+      (click)="removeQuantity(group_index)"
+      class="btn-control"
+    >
+      &times;
+    </button>
+  </div>
+</div>
+<div>
+  <!-- <select
+    #inputSelectFood
+    formControlName="food"
+    placeholder="Alimento"
+    class="form-control select-filterbar input-control"
+    name="inputSelectFood"
+    [value]="value"
+    (change)="onSelect($event, i)"
+    [title]="value || placeholder"
+  >
+    <option style="display: none" value="" selected>
+      {{ this.getValue() }}
+    </option>
+    <option *ngFor="let opt of options" [value]="opt.value">
+      {{ opt.label }}
+    </option>
+  </select> -->
+</div>
+<div class="input-control">
+  <input
+    type="number"
+    placeholder="Carboidrati (per 100g)"
+  />
+</div>
+<div class="input-control">
+  <input
+    type="number"
+    placeholder="Grammi somministrati"
+  />
+</div>
+<div class="input-control delete smallTab">
+  <button
+    type="button"
+    (click)="removeQuantity(group_index)"
+    class="btn-control"
+  >
+    &times;
+  </button>
+</div>

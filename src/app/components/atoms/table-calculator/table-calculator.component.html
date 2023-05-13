@@ -1,65 +1,19 @@
 <div class="container">
-  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
-    <div formArrayName="quantities" class="flex-column">
+  <form>
+    <div class="flex-column">
       <h2>Calcolo Insulina</h2>
       <div
-        *ngFor="let quantity of quantities().controls; let i = index"
-        [formGroupName]="i"
+        *ngFor="let quantity of input_array; let i = index"
         class="input-group"
       >
-        <div class="flex-end mobile">
-          <div class="input-control delete">
-            <button
-              type="button"
-              (click)="removeQuantity(i)"
-              class="btn-control"
-            >
-              &times;
-            </button>
-          </div>
-        </div>
-        <div class="input-control">
-          <input
-            type="text"
-            formControlName="food"
-            placeholder="Alimento"
-            class="form-control"
-          />
-        </div>
-        <div class="input-control">
-          <input
-            type="number"
-            formControlName="carbs"
-            placeholder="Carboidrati (per 100g)"
-            class="form-control"
-          />
-        </div>
-        <div class="input-control">
-          <input
-            type="number"
-            formControlName="qty"
-            placeholder="Grammi somministrati"
-            (input)="onInput($event)"
-            class="form-control"
-          />
-        </div>
-        <div class="input-control delete smallTab">
-          <button type="button" (click)="removeQuantity(i)" class="btn-control">
-            &times;
-          </button>
-        </div>
+        <app-input-group [group_index]="i"/>
       </div>
       <div class="input-group" (click)="addQuantity()">
-        <button type="button" class="add btn-control">
-          &plus;
-        </button>
+        <button type="button" class="add btn-control">&plus;</button>
       </div>
     </div>
   </form>
   <br />
-  <p>
-    <button type="submit" [disabled]="!productForm.valid">Submit</button>
-  </p>
   <div class="flex">
     <h2>Risultati</h2>
   </div>
