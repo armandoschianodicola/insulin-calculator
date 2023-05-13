@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-input-group',
@@ -8,9 +8,16 @@ import { Component, Input } from '@angular/core';
 export class InputGroupComponent {
 
   @Input() group_index: any
+  @Output() onClickInput = new EventEmitter<any>();
 
-  removeQuantity(i:number) {  
-    // this.quantities().removeAt(i);  
-  } 
+  carbs_percent = 0
+
+  onClick(i: number) {
+    this.onClickInput.emit(i);
+  }
+
+  onSelect(e: {value:number}) {
+    this.carbs_percent = e.value
+  }
 
 }

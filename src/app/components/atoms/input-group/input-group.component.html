@@ -2,7 +2,7 @@
   <div class="input-control delete">
     <button
       type="button"
-      (click)="removeQuantity(group_index)"
+      (click)="onClick(group_index)"
       class="btn-control"
     >
       &times;
@@ -10,27 +10,12 @@
   </div>
 </div>
 <div>
-  <!-- <select
-    #inputSelectFood
-    formControlName="food"
-    placeholder="Alimento"
-    class="form-control select-filterbar input-control"
-    name="inputSelectFood"
-    [value]="value"
-    (change)="onSelect($event, i)"
-    [title]="value || placeholder"
-  >
-    <option style="display: none" value="" selected>
-      {{ this.getValue() }}
-    </option>
-    <option *ngFor="let opt of options" [value]="opt.value">
-      {{ opt.label }}
-    </option>
-  </select> -->
+    <app-select-food (onSelectInput)="onSelect($event)"/>
 </div>
 <div class="input-control">
   <input
     type="number"
+    [value]="carbs_percent"
     placeholder="Carboidrati (per 100g)"
   />
 </div>
@@ -43,7 +28,7 @@
 <div class="input-control delete smallTab">
   <button
     type="button"
-    (click)="removeQuantity(group_index)"
+    (click)="onClick(group_index)"
     class="btn-control"
   >
     &times;

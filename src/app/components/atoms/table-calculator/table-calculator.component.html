@@ -6,7 +6,7 @@
         *ngFor="let quantity of input_array; let i = index"
         class="input-group"
       >
-        <app-input-group [group_index]="i"/>
+        <app-input-group [group_index]="i" (onClickInput)="removeQuantity(i)"/>
       </div>
       <div class="input-group" (click)="addQuantity()">
         <button type="button" class="add btn-control">&plus;</button>

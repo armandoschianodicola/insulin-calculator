@@ -3,47 +3,56 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 @Component({
   selector: 'app-table-calculator',
   templateUrl: './table-calculator.component.html',
-  styleUrls: ['./table-calculator.component.scss']
+  styleUrls: ['./table-calculator.component.scss'],
 })
 export class TableCalculatorComponent {
-
   @Input() key: any = '';
   @Input() label: string = '';
   // @Input() options: any[] = [];
-  input_array: any[] = []
+  input_array: any[] = [];
 
-
-  value = 'Alimento'
-  placeholder = 'Alimento'
+  value = 'Alimento';
+  placeholder = 'Alimento';
 
   options = [
     {
-      "label": "a", "value": 4
+      label: 'a',
+      value: 4,
     },
     {
-      "label": "b", "value": 5
+      label: 'b',
+      value: 5,
     },
-  ]
-  
-  current: number = 0
-  needed: number = 150
-  correction: number = 40
-        
-  newQuantity(): {} {  
-    return {  
-      food: '',  
-      qty: 0,  
-      carbs: 0,  
-      total_carbs: 0,  
-    } 
-  }  
-     
-  addQuantity() { 
+  ];
+
+  current: number = 0;
+  needed: number = 150;
+  correction: number = 40;
+
+  newQuantity(): {} {
+    return {
+      food: '',
+      qty: 0,
+      carbs: 0,
+      total_carbs: 0,
+    };
+  }
+
+  addQuantity() {
     this.input_array.push(this.newQuantity());
-  }  
-      
+  }
+
+  removeQuantity(i: number) {
+    console.log(i)
+    
+    if (i > -1) {
+      this.input_array.splice(i, 1); 
+    }
+    console.log(this.input_array)
+  }
+
   onSelect(e: Event, i: any) {
-    let value = (<HTMLSelectElement>e.target).value
+    let value = (<HTMLSelectElement>e.target).value;
     // this.productForm.value.quantities[i].carbs = value
   }
 
@@ -55,27 +64,26 @@ export class TableCalculatorComponent {
     }
     return res;
   }
-  
+
   getTotalCarbs(): number {
-    let quantities = this.input_array
-    let result: number = 0
+    let quantities = this.input_array;
+    let result: number = 0;
     quantities.forEach((e: { qty: number; carbs: number }) => {
-      result += ((e.qty * e.carbs) / 100)
+      result += (e.qty * e.carbs) / 100;
     });
-    return result
+    return result;
   }
 
   getInsulinFoodValue(): number {
-    let result = this.getTotalCarbs() / 10
-    return result
+    let result = this.getTotalCarbs() / 10;
+    return result;
   }
 
   getInsulinTotalValue(): number {
-    let insulinFoodValue = this.getInsulinFoodValue()
-    let result = ((this.current - this.needed) / this.correction) + insulinFoodValue
-  
-    return result > 0 ? result : 0
-  
-  }
+    let insulinFoodValue = this.getInsulinFoodValue();
+    let result =
+      (this.current - this.needed) / this.correction + insulinFoodValue;
 
+    return result > 0 ? result : 0;
+  }
 }

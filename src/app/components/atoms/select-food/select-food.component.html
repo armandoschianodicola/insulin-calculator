@@ -1,0 +1,16 @@
+<select
+  #inputSelectFood
+  placeholder="Alimento"
+  class="select-filterbar input-control"
+  name="inputSelectFood"
+  [value]="title"
+  (change)="onSelect($event)"
+  [title]="title || placeholder"
+>
+  <option style="display: none" value="" selected>
+    {{ this.getValue() }}
+  </option>
+  <option *ngFor="let opt of options" [value]="opt.value">
+    {{ opt.label }}
+  </option>
+</select>
