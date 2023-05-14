@@ -8,26 +8,18 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class TableCalculatorComponent {
   @Input() key: any = '';
   @Input() label: string = '';
-  // @Input() options: any[] = [];
   input_array: any[] = [];
 
   value = 'Alimento';
   placeholder = 'Alimento';
 
-  options = [
-    {
-      label: 'a',
-      value: 4,
-    },
-    {
-      label: 'b',
-      value: 5,
-    },
-  ];
-
   current: number = 0;
   needed: number = 150;
   correction: number = 40;
+
+  constructor() {
+    this.addQuantity();
+  }
 
   newQuantity(): {} {
     return {
@@ -42,27 +34,16 @@ export class TableCalculatorComponent {
     this.input_array.push(this.newQuantity());
   }
 
+  onInput(e: {value: number ,group_index: number, key: string}) {
+    this.input_array[e.group_index][e.key] = e.value
+    this.getInsulinFoodValue()
+    this.getInsulinTotalValue()
+  }
+
   removeQuantity(i: number) {
-    console.log(i)
-    
     if (i > -1) {
-      this.input_array.splice(i, 1); 
+      this.input_array.splice(i, 1);
     }
-    console.log(this.input_array)
-  }
-
-  onSelect(e: Event, i: any) {
-    let value = (<HTMLSelectElement>e.target).value;
-    // this.productForm.value.quantities[i].carbs = value
-  }
-
-  getValue(): any {
-    let res = this.placeholder;
-    if (this.value) {
-      let arr = this.options.filter((el: any) => el.value == this.value);
-      if (arr.length > 0) res = arr[0].label;
-    }
-    return res;
   }
 
   getTotalCarbs(): number {

@@ -9,15 +9,23 @@ export class InputGroupComponent {
 
   @Input() group_index: any
   @Output() onClickInput = new EventEmitter<any>();
+  @Output() onInput = new EventEmitter<any>();
 
-  carbs_percent = 0
+  carbs_percent = ''
 
   onClick(i: number) {
     this.onClickInput.emit(i);
   }
 
-  onSelect(e: {value:number}) {
-    this.carbs_percent = e.value
-  }
+  onInputEvent(event: Event, group_index: number, key: string) {
+    if (key == 'carbs') {
+      this.carbs_percent = (event.target as HTMLInputElement).value
+    }
+    this.onInput.emit({
+      value: (event.target as HTMLInputElement).value, 
+      group_index,
+      key
+    })
+  } 
 
 }

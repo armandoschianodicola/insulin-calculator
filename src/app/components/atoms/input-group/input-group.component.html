@@ -10,19 +10,23 @@
   </div>
 </div>
 <div>
-    <app-select-food (onSelectInput)="onSelect($event)"/>
+    <app-select-food (onSelectInput)="onInputEvent($event, group_index, 'carbs')"/>
 </div>
 <div class="input-control">
   <input
+    #inputCarbs
     type="number"
     [value]="carbs_percent"
     placeholder="Carboidrati (per 100g)"
+    (keyup)="onInputEvent($event, group_index, 'carbs')"
   />
 </div>
 <div class="input-control">
   <input
+    #inputGrams
     type="number"
     placeholder="Grammi somministrati"
+    (keyup)="onInputEvent($event, group_index, 'qty')"
   />
 </div>
 <div class="input-control delete smallTab">

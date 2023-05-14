@@ -22,10 +22,8 @@ export class SelectFoodComponent {
   }
 
   getValue() {}
+  
   onSelect(e: Event) {
-    this.onSelectInput.emit({
-      value: (e.target as HTMLSelectElement).value
-    })
-    console.log((e.target as HTMLSelectElement).value)
+    this.onSelectInput.emit(e)
   }
 }
