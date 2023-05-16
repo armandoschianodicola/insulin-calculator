@@ -18,7 +18,8 @@ export class SelectFoodComponent {
   constructor(
     private optionService: OptionService,
   ) {
-    this.options = this.optionService.getOptions();
+    this.options = this.optionService.getMockOptions();
+    let data =  this.optionService.getDbOptions()
   }
 
   getValue() {}
