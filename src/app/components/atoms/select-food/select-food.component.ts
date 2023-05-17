@@ -10,16 +10,23 @@ export class SelectFoodComponent {
 
   @Output() onSelectInput = new EventEmitter<any>();
 
-  options: {label: string, value: number }[] = [];
+  options: {label: string, value: number}[] = [];
   title = 'Alimento';
   placeholder = 'Alimento';
-
 
   constructor(
     private optionService: OptionService,
   ) {
-    this.options = this.optionService.getMockOptions();
-    let data =  this.optionService.getDbOptions()
+    // this.options = this.optionService.getMockOptions();
+    this.optionService.getDbOptions().forEach(
+      (document) => {
+        document.forEach((elem) => {
+          this.options.push({
+            label: elem.name,
+            value: elem.carbs
+          })
+        })
+    })
   }
 
   getValue() {}

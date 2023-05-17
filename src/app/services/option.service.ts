@@ -2,6 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { MOCK_OPTIONS } from '../data/mock/options';
 import { Firestore, collectionData, collection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { Food } from '../entities/food';
 
 
 @Injectable({
@@ -9,14 +10,14 @@ import { Observable } from 'rxjs';
 })
 export class OptionService {
 
-  item$: Observable<any[]>;
+  item$: Observable<Food[]>;
   firestore: Firestore = inject(Firestore);
 
   constructor(
   ) {
     
     const itemCollection = collection(this.firestore, 'food');
-    this.item$ = collectionData(itemCollection);
+    this.item$ = collectionData(itemCollection) as Observable<any>;
   }
 
   getMockOptions() {
@@ -24,9 +25,7 @@ export class OptionService {
   }
 
   getDbOptions() {
-    let data = this.item$
-    // let data = this.db.object('food').valueChanges()
-    console.log(data)
+    return this.item$
   }
 
 }
