@@ -12,7 +12,7 @@ import { SelectFoodComponent } from './components/atoms/select-food/select-food.
 import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 
-import { environment } from '../env/environment';
+import { environment } from 'env.production';
 
 @NgModule({
   declarations: [
