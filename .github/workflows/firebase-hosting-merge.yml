@@ -15,6 +15,6 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_INSULIN_CALCULATOR_C1559 }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_INSULIN_CALCULATOR_B4EE4 }}'
           channelId: live
-          projectId: insulin-calculator-c1559
+          projectId: insulin-calculator-b4ee4
