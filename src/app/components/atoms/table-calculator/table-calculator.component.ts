@@ -66,11 +66,7 @@ export class TableCalculatorComponent {
   }
 
   getInsulinTotalValue(): number {
-    let getInsulinBaseValue = this.getInsulinBaseValue();
-    let result = 0
-    if ( getInsulinBaseValue > 0) {
-      result = this.getInsulinFoodValue() + getInsulinBaseValue;
-    }
+    let result = this.getInsulinFoodValue() + this.getInsulinBaseValue();
 
     return result > 0 ? result : 0;
   }
