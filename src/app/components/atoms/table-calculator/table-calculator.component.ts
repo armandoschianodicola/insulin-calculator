@@ -16,6 +16,7 @@ export class TableCalculatorComponent {
   current: number = 0;
   needed: number = 150;
   correction: number = 40;
+  insulinBaseValue: number = 0;
 
   constructor() {
     this.addQuantity();
@@ -62,11 +63,12 @@ export class TableCalculatorComponent {
 
   getInsulinBaseValue(): number {
     let result = (this.current - this.needed) / this.correction
+    this.insulinBaseValue = result
     return result > 0 ? result : 0;
   }
 
   getInsulinTotalValue(): number {
-    let result = this.getInsulinFoodValue() + this.getInsulinBaseValue();
+    let result = this.getInsulinFoodValue() + this.insulinBaseValue;
 
     return result > 0 ? result : 0;
   }
