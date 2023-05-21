@@ -8,11 +8,7 @@ import { TableCalculatorComponent } from './components/atoms/table-calculator/ta
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputGroupComponent } from './components/atoms/input-group/input-group.component';
 import { SelectFoodComponent } from './components/atoms/select-food/select-food.component';
-
-import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
-import { getFirestore, provideFirestore } from '@angular/fire/firestore';
-
-import { environment } from 'env.production';
+import { FoodOption, ManualFoodOption } from './entities/option';
 
 @NgModule({
   declarations: [
@@ -20,17 +16,15 @@ import { environment } from 'env.production';
     HomeComponent,
     TableCalculatorComponent,
     InputGroupComponent,
-    SelectFoodComponent,
+    SelectFoodComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    provideFirebaseApp(() => initializeApp(environment.dbConfig)),
-    provideFirestore(() => getFirestore()),
   ],
-  providers: [],
+  providers: [ManualFoodOption],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

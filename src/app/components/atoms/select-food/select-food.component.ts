@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { OptionService } from 'src/app/services/option.service';
+import { FoodOptionService } from 'src/app/services/food-option.service';
 
 @Component({
   selector: 'app-select-food',
@@ -7,31 +7,25 @@ import { OptionService } from 'src/app/services/option.service';
   styleUrls: ['./select-food.component.scss'],
 })
 export class SelectFoodComponent {
-
   @Output() onSelectInput = new EventEmitter<any>();
 
-  options: {label: string, value: number}[] = [];
+  options: { label: string; value: number }[] = [];
   title = 'Alimento';
   placeholder = 'Alimento';
 
-  constructor(
-    private optionService: OptionService,
-  ) {
+  constructor(private FoodOptionService: FoodOptionService) {
     // this.options = this.optionService.getMockOptions();
-    this.optionService.getDbOptions().forEach(
-      (document) => {
-        document.forEach((elem) => {
-          this.options.push({
-            label: elem.name,
-            value: elem.carbs
-          })
-        })
-    })
+    this.FoodOptionService.getManualFoodOptions().forEach((elem) => {
+      this.options.push({
+        label: elem.name,
+        value: elem.carbs,
+      });
+    });
   }
 
   getValue() {}
-  
+
   onSelect(e: Event) {
-    this.onSelectInput.emit(e)
+    this.onSelectInput.emit(e);
   }
 }
