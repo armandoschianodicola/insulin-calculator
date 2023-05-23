@@ -2,11 +2,13 @@
   <form>
     <div class="main flex-column">
       <h2>Calcolo Insulina</h2>
-      <div
-        *ngFor="let quantity of input_array; let i = index"
-        
-      >
-        <app-input-group class="input-group" [group_index]="i" (onClickInput)="removeQuantity(i)" (onInput)="onInput($event)"/>
+      <div *ngFor="let quantity of input_array; let i = index">
+        <app-input-group
+          class="input-group"
+          [group_index]="i"
+          (onClickInput)="removeQuantity(i)"
+          (onInput)="onInput($event)"
+        />
       </div>
       <div class="input-group" (click)="addQuantity()">
         <button type="button" class="add btn-control">&plus;</button>
@@ -18,47 +20,47 @@
     <h2>Risultati</h2>
   </div>
   <div class="flex-column">
-    <span>
-      <label for="total_carbs">Carboidrati Totali:</label>
-      {{ this.getTotalCarbs() }}
-    </span>
-    <div>
-      <span>Insulina per pasto:</span>
-      {{ this.getInsulinFoodValue() }}
-    </div>
-    <span>
-      <label for="correction">Fattore di Correzione:</label>
+    <div class="input-group-result">
+      <label for="correction">Fattore di Correzione</label>
       <input
         class="input-result"
         id="correction"
         type="number"
         [(ngModel)]="correction"
       />
-    </span>
-    <span>
-      <label for="current">Glicemia attuale:</label>
+    </div>
+    <div class="input-group-result">
+      <label for="current">Glicemia attuale</label>
       <input
         class="input-result"
         id="current"
         type="number"
         [(ngModel)]="current"
       />
-    </span>
-    <span>
-      <label for="needed">Glicemia desiderata:</label>
+    </div>
+    <div class="input-group-result">
+      <label for="needed">Glicemia desiderata</label>
       <input
         class="input-result"
         id="needed"
         type="number"
         [(ngModel)]="needed"
       />
-    </span>
+    </div>
     <div>
-      <span>Insulina di base:</span>
+      <label>Carboidrati Totali:</label>
+      {{ this.getTotalCarbs() }}
+    </div>
+    <div>
+      <label>Insulina per pasto:</label>
+      {{ this.getInsulinFoodValue() }}
+    </div>
+    <div>
+      <label>Insulina di base:</label>
       {{ this.getInsulinBaseValue() }}
     </div>
     <div>
-      <span>Insulina necessaria totale:</span>
+      <label>Insulina necessaria totale:</label>
       {{ this.getInsulinTotalValue() }}
     </div>
   </div>

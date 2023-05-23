@@ -31,6 +31,10 @@
   padding: 8px;
 }
 
+.input-control:focus-within {
+  border: 2px solid #555;
+}
+
 .input-group {
   // border: 1px solid;
   // border-radius: 5px;
@@ -40,6 +44,25 @@
   @include respond-to("smallTab") {
     @include flex;
   }
+}
+
+.input-group-result input {
+  border: 2px solid #6e6868;
+  border-radius: 10px;
+  padding: 8px 10px;
+  transition: 0.2s;
+}
+.input-group-result input:focus-within {
+  border-color: black
+}
+
+.input-group-result label {
+  position: relative;
+  top: 10px;
+  left: 10px;
+  width: 100%;
+  background-color: white;
+  padding: 0 5px;
 }
 
 .add {
