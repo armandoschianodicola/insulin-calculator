@@ -60,9 +60,18 @@
   position: relative;
   top: 10px;
   left: 10px;
-  width: 100%;
   background-color: white;
   padding: 0 5px;
+
+  @include respond-to("smallTab") {
+    display: inline-block;
+    padding: 0px 0px;
+    top: 0px;
+    left: 0px;
+    width: 30%;
+
+  }
+
 }
 
 .add {
