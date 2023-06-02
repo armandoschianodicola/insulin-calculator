@@ -15,15 +15,23 @@ export class SelectFoodComponent {
 
   constructor(private FoodOptionService: FoodOptionService) {
     // this.options = this.optionService.getMockOptions();
-    this.FoodOptionService.getManualFoodOptions().forEach((elem) => {
-      this.options.push({
-        label: elem.name,
-        value: elem.carbs,
-      });
-    });
+    // this.FoodOptionService.getBackendFoodOptions().forEach((elem) => {
+    //   this.options.push({
+    //     label: elem.name,
+    //     value: elem.carbs,
+    //   });
+    // });
+    this.FoodOptionService.getBackendFoodOptions().subscribe(
+      (data: any) => {
+        data.forEach((params: any) => {
+          this.options.push({
+            label: params.name,
+            value: params.carbs
+          })
+        })      
+      }
+    )
   }
-
-  getValue() {}
 
   onSelect(e: Event) {
     this.onSelectInput.emit(e);

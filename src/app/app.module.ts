@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,7 +9,7 @@ import { TableCalculatorComponent } from './components/atoms/table-calculator/ta
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputGroupComponent } from './components/atoms/input-group/input-group.component';
 import { SelectFoodComponent } from './components/atoms/select-food/select-food.component';
-import { FoodOption, ManualFoodOption } from './entities/option';
+import { BackendFoodOption, FoodOption, ManualFoodOption } from './entities/option';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { FoodOption, ManualFoodOption } from './entities/option';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [ManualFoodOption],
   bootstrap: [AppComponent]

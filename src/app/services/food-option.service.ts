@@ -1,6 +1,8 @@
 import { Injectable} from '@angular/core';
 import { Observable } from 'rxjs';
-import { ManualFoodOption } from '../entities/option';
+import { BackendFoodOption, FoodOption, ManualFoodOption } from '../entities/option';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ConnectService } from './connect.service';
 
 
 @Injectable({
@@ -8,12 +10,27 @@ import { ManualFoodOption } from '../entities/option';
 })
 export class FoodOptionService {
 
-  constructor(
-    private optionFoodStrategy: ManualFoodOption
-  ) {}
+  rootUrl: string = '';
 
-  getManualFoodOptions() {
+  constructor(
+    private optionFoodStrategy: ManualFoodOption,
+    private http: HttpClient,
+     private connect: ConnectService
+  ) {
+    this.rootUrl = this.connect.getRootUrl();
+  }
+
+
+  getFoodOptions() {
     return this.optionFoodStrategy.get()
   }
+
+  getBackendFoodOptions(): Observable<any> {
+    let url = this.rootUrl + '/food/api';
+    let result = this.http.get(url);
+    console.log(result)
+    return result
+  }
+
 
 }
