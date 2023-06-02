@@ -16,52 +16,53 @@
     </div>
   </form>
   <br />
-  <div class="flex">
+  <div>
     <h2>Risultati</h2>
-  </div>
-  <div class="flex-column">
-    <div class="input-group-result">
-      <label for="correction">Fattore di Correzione</label>
-      <input
-        class="input-result"
-        id="correction"
-        type="number"
-        [(ngModel)]="correction"
-      />
-    </div>
-    <div class="input-group-result">
-      <label for="current">Glicemia attuale</label>
-      <input
-        class="input-result"
-        id="current"
-        type="number"
-        [(ngModel)]="current"
-      />
-    </div>
-    <div class="input-group-result">
-      <label for="needed">Glicemia desiderata</label>
-      <input
-        class="input-result"
-        id="needed"
-        type="number"
-        [(ngModel)]="needed"
-      />
-    </div>
-    <div>
-      <label>Carboidrati Totali:</label>
-      {{ this.getTotalCarbs() }}
-    </div>
-    <div>
-      <label>Insulina per pasto:</label>
-      {{ this.getInsulinFoodValue() }}
-    </div>
-    <div>
-      <label>Insulina di base:</label>
-      {{ this.getInsulinBaseValue() }}
-    </div>
-    <div>
-      <label>Insulina necessaria totale:</label>
-      {{ this.getInsulinTotalValue() }}
+
+    <div class="flex-column">
+      <div class="input-group-result">
+        <label for="correction">Fattore di Correzione</label>
+        <input
+          class="input-result"
+          id="correction"
+          type="number"
+          [(ngModel)]="correction"
+        />
+      </div>
+      <div class="input-group-result">
+        <label for="current">Glicemia attuale</label>
+        <input
+          class="input-result"
+          id="current"
+          type="number"
+          [(ngModel)]="current"
+        />
+      </div>
+      <div class="input-group-result">
+        <label for="needed">Glicemia desiderata</label>
+        <input
+          class="input-result"
+          id="needed"
+          type="number"
+          [(ngModel)]="needed"
+        />
+      </div>
+      <div>
+        <label>Carboidrati Totali:</label>
+        {{ this.getTotalCarbs() }}
+      </div>
+      <div>
+        <label>Insulina per pasto:</label>
+        {{ this.getInsulinFoodValue() }}
+      </div>
+      <div>
+        <label>Insulina di base:</label>
+        {{ this.getInsulinBaseValue() }}
+      </div>
+      <div>
+        <label>Insulina necessaria totale:</label>
+        {{ this.getInsulinTotalValue() }}
+      </div>
     </div>
   </div>
 </div>

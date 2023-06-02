@@ -17,9 +17,13 @@
 }
 
 .flex-column {
-  display: flex;
-  gap: 1em;
+  @include flex;
   flex-direction: column;
+}
+
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .input-control {
@@ -51,6 +55,7 @@
   border-radius: 10px;
   padding: 8px 10px;
   transition: 0.2s;
+  width: 100%;
 }
 .input-group-result input:focus-within {
   border-color: black
@@ -86,11 +91,6 @@
   background: #f44336;
   // width: 55px;
   // height: 30px;
-}
-
-.flex-end {
-  display: flex;
-  justify-content: flex-end;
 }
 
 .mobile {
