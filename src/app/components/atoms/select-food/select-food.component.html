@@ -8,7 +8,7 @@
   [title]="title || placeholder"
 >
   <option style="display: none" value="" selected>
-    {{ this.getValue() }}
+    -- Seleziona Alimento --
   </option>
   <option *ngFor="let opt of options" [value]="opt.value">
     {{ opt.label }}

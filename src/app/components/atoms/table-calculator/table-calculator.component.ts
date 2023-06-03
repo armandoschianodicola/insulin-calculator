@@ -13,7 +13,7 @@ export class TableCalculatorComponent {
   value = 'Alimento';
   placeholder = 'Alimento';
 
-  current: number = 0;
+  current: number = 150;
   needed: number = 150;
   correction: number = 40;
   insulinBaseValue: number = 0;

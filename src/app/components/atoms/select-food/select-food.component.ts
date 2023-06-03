@@ -23,8 +23,6 @@ export class SelectFoodComponent {
     });
   }
 
-  getValue() {}
-
   onSelect(e: Event) {
     this.onSelectInput.emit(e);
   }
