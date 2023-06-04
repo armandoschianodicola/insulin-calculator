@@ -35,7 +35,6 @@ export class BackendFoodOption extends FoodOption {
       responseType: 'json',
       withCredentials: true,
     });
-    console.log(result)
     return result
   }
 }

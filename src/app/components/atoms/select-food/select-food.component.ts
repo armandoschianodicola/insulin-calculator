@@ -14,13 +14,6 @@ export class SelectFoodComponent {
   placeholder = 'Alimento';
 
   constructor(private FoodOptionService: FoodOptionService) {
-    // this.options = this.optionService.getMockOptions();
-    // this.FoodOptionService.getBackendFoodOptions().forEach((elem) => {
-    //   this.options.push({
-    //     label: elem.name,
-    //     value: elem.carbs,
-    //   });
-    // });
     this.FoodOptionService.getBackendFoodOptions().subscribe(
       (data: any) => {
         data.forEach((params: any) => {

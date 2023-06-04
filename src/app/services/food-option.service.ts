@@ -15,11 +15,10 @@ export class FoodOptionService {
   constructor(
     private optionFoodStrategy: ManualFoodOption,
     private http: HttpClient,
-     private connect: ConnectService
+    private connect: ConnectService
   ) {
     this.rootUrl = this.connect.getRootUrl();
   }
-
 
   getFoodOptions() {
     return this.optionFoodStrategy.get()
@@ -28,9 +27,7 @@ export class FoodOptionService {
   getBackendFoodOptions(): Observable<any> {
     let url = this.rootUrl + '/food/api';
     let result = this.http.get(url);
-    console.log(result)
     return result
   }
-
 
 }
