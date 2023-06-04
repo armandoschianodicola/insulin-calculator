@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ConnectService {
-  public apiUrl: string = 'http://127.0.0.1:8000'; //develop
+  public apiUrl: string = 'http://armoschiano.pythonanywhere.com/'; //develop
 
   constructor() {}
 
