@@ -31,7 +31,10 @@ export class BackendFoodOption extends FoodOption {
   get():  Observable<FoodOption>  {
     let url = this.rootUrl + '/food/api/';
     let result = this.http.get<FoodOption>(url, {
-      headers: new HttpHeaders('Access-Control-Allow-Origin'),
+      headers: new HttpHeaders()
+      .set('Access-Control-Allow-Origin', '*')
+      .set('http-equiv', 'Content-Security-Policy')
+      .set('content', 'upgrade-insecure-requests'),
       responseType: 'json',
       withCredentials: true,
     });
