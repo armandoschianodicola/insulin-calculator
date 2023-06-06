@@ -1,4 +1,8 @@
 select {
     border: none;
     outline: none;
+    appearance: none;
+    background-color: transparent;
+    padding: 0 1em 0 0;
+    cursor: inherit;
 }

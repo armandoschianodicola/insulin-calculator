@@ -16,6 +16,10 @@
   height: 100%;
 }
 
+
+// Containers
+
+
 .flex-column {
   @include flex;
   flex-direction: column;
@@ -25,6 +29,10 @@
   display: flex;
   justify-content: flex-end;
 }
+
+
+// Inputs
+
 
 .input-control {
   @include input-control;
@@ -40,9 +48,6 @@
 }
 
 .input-group {
-  // border: 1px solid;
-  // border-radius: 5px;
-  padding: 5px;
   margin-bottom: 10px;
 
   @include respond-to("smallTab") {
@@ -79,6 +84,10 @@
 
 }
 
+
+// Buttons
+
+
 .add {
   background: #8bc34a;
 }
@@ -89,9 +98,11 @@
 
 .delete {
   background: #f44336;
-  // width: 55px;
-  // height: 30px;
 }
+
+
+// Responsive
+
 
 .mobile {
   @include respond-to("smallTab") {
@@ -115,4 +126,10 @@
   @media (max-width: 960px) {
     display: none;
   }
+}
+
+// Select
+
+.select {
+  cursor: pointer;
 }
