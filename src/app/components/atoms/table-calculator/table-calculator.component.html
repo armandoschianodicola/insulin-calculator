@@ -1,14 +1,16 @@
 <div class="container">
   <form>
-    <div class="main flex-column">
+    <div class="grid">
       <h2>Calcolo Insulina</h2>
-      <div *ngFor="let quantity of input_array; let i = index">
-        <app-input-group
-          class="input-group"
-          [group_index]="i"
-          (onClickInput)="removeQuantity(i)"
-          (onInput)="onInput($event)"
-        />
+      <div class="input-group-container">
+        <div *ngFor="let quantity of input_array; let i = index">
+          <app-input-group
+            class="input-group"
+            [group_index]="i"
+            (onClickInput)="removeQuantity(i)"
+            (onInput)="onInput($event)"
+          />
+        </div>
       </div>
       <div class="input-group" (click)="addQuantity()">
         <button type="button" class="add btn-control">&plus;</button>
