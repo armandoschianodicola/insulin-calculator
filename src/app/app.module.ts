@@ -9,7 +9,9 @@ import { TableCalculatorComponent } from './components/atoms/table-calculator/ta
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputGroupComponent } from './components/atoms/input-group/input-group.component';
 import { SelectFoodComponent } from './components/atoms/select-food/select-food.component';
-import { BackendFoodOption, FoodOption, ManualFoodOption } from './entities/option';
+import { ManualFoodOption } from './entities/option';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { BackendFoodOption, FoodOption, ManualFoodOption } from './entities/opti
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FontAwesomeModule,
   ],
   providers: [ManualFoodOption],
   bootstrap: [AppComponent]
