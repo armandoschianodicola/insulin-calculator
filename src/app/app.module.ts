@@ -10,7 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputGroupComponent } from './components/atoms/input-group/input-group.component';
 import { SelectFoodComponent } from './components/atoms/select-food/select-food.component';
 import { ManualFoodOption } from './entities/option';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { PopupComponent } from './components/organisms/popup/popup.component'
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
     HomeComponent,
     TableCalculatorComponent,
     InputGroupComponent,
-    SelectFoodComponent
+    SelectFoodComponent,
+    PopupComponent
   ],
   imports: [
     BrowserModule,

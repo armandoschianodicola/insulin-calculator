@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { faPencil } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-input-group',
@@ -12,9 +13,14 @@ export class InputGroupComponent {
   @Output() onInput = new EventEmitter<any>();
 
   carbs_percent = ''
+  faPencil = faPencil;
 
   onClick(i: number) {
     this.onClickInput.emit(i);
+  }
+
+  onClickEdit(i: number) {
+    
   }
 
   onInputEvent(event: Event, group_index: number, key: string) {

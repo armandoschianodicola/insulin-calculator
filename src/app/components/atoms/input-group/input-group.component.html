@@ -1,4 +1,13 @@
 <div class="flex-end mobile">
+  <div class="input-control edit">
+    <button
+      type="button"
+      (click)="onClickEdit(group_index)"
+      class="btn-control"
+    >
+    <fa-icon [icon]="faPencil"></fa-icon>
+    </button>
+  </div>
   <div class="input-control delete">
     <button
       type="button"
@@ -28,6 +37,15 @@
     placeholder="Grammi somministrati"
     (keyup)="onInputEvent($event, group_index, 'qty')"
   />
+</div>
+<div class="input-control edit smallTab">
+  <button
+    type="button"
+    (click)="onClickEdit(group_index)"
+    class="btn-control"
+  >
+  <fa-icon [icon]="faPencil"></fa-icon>
+  </button>
 </div>
 <div class="input-control delete smallTab">
   <button

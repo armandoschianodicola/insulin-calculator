@@ -1,0 +1,31 @@
+<p>popup works!</p>
+<div class="overlay-popup">
+    <div class="scheda-container">
+      <div class="row">
+        <h4 class="title">{{ title }}</h4>
+        <img
+          src="/assets/media/icon-close.svg"
+          class="absolute"
+          (click)="onClose()"
+        />
+      </div>
+      <div class="body">
+        <p>
+          {{ text }}
+        </p>
+      </div>
+      <!-- <div class="row-btns">
+        <app-dr-button
+          text="Annulla"
+          class="gray-btn"
+          (click)="onClose()"
+        ></app-dr-button>
+        <app-dr-button
+          text="Conferma"
+          class="blue-btn"
+          (click)="onConfirmClick()"
+        ></app-dr-button>
+      </div> -->
+    </div>
+  </div>
+  

@@ -99,6 +99,10 @@
   @include btn-control;
 }
 
+.edit {
+  background: cornflowerblue;
+}
+
 .delete {
   background: #f44336;
 }
@@ -144,5 +148,27 @@
   @include respond-to("smallTab") {
     height: 45px;
   }
-  
+
+}
+
+
+// Popup
+
+.overlay-popup {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: fixed;
+  overflow-y: scroll;
+  display: grid;
+  place-content: center;
+  padding-top: 30px;
+  right: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.455);
+  z-index: 60;
+}
+
+.scheda-container {
+  width: 50px;
 }
