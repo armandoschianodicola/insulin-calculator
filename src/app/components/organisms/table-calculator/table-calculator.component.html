@@ -1,6 +1,7 @@
 <div class="container">
   <app-popup
-    *ngIf="true"
+    *ngIf="showPopup"
+    (onCloseInput)="onClosePopup()"
   ></app-popup>
   <form>
     <div class="grid">
@@ -12,6 +13,7 @@
             [group_index]="i"
             (onClickInput)="removeQuantity(i)"
             (onInput)="onInput($event)"
+            (onClickEditInput)="editInput(i)"
           />
         </div>
       </div>

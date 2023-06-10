@@ -10,6 +10,7 @@ export class InputGroupComponent {
 
   @Input() group_index: any
   @Output() onClickInput = new EventEmitter<any>();
+  @Output() onClickEditInput = new EventEmitter<any>();
   @Output() onInput = new EventEmitter<any>();
 
   carbs_percent = ''
@@ -20,7 +21,7 @@ export class InputGroupComponent {
   }
 
   onClickEdit(i: number) {
-    
+    this.onClickEditInput.emit(i);
   }
 
   onInputEvent(event: Event, group_index: number, key: string) {

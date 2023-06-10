@@ -2,7 +2,7 @@
 <div class="overlay-popup">
     <div class="scheda-container">
       <div class="row">
-        <h4 class="title">{{ title }}</h4>
+        <h4 class="title">Modifica dati</h4>
         <img
           src="/assets/media/icon-close.svg"
           class="absolute"
@@ -10,9 +10,24 @@
         />
       </div>
       <div class="body">
-        <p>
-          {{ text }}
-        </p>
+      <!-- <div class="inputs-container">
+        <app-dr-input
+          (onChangeInput)="setFormTargato($event)"
+          key="plate"
+          [error]="this.errors.includes('plate')"
+          placeholder="Targa"
+          label="Targa"
+          value="{{ this.taragatoVals.plate }}"
+        ></app-dr-input>
+        <app-dr-input
+          (onChangeInput)="setFormTargato($event)"
+          key="plate_date"
+          placeholder="Data Targa"
+          label="Data Targa"
+          value="{{ this.taragatoVals.plate_date }}"
+          type="date"
+        ></app-dr-input>
+      </div> -->
       </div>
       <!-- <div class="row-btns">
         <app-dr-button

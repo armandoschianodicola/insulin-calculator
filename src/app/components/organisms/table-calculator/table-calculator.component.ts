@@ -18,6 +18,8 @@ export class TableCalculatorComponent {
   correction: number = 40;
   insulinBaseValue: number = 0;
 
+  showPopup: boolean = false
+
   constructor() {
     this.addQuantity();
   }
@@ -45,6 +47,14 @@ export class TableCalculatorComponent {
     if (i > -1) {
       this.input_array.splice(i, 1);
     }
+  }
+
+  editInput(i: number) {
+    this.showPopup = !this.showPopup
+  }
+
+  onClosePopup() {
+    this.showPopup = !this.showPopup
   }
 
   getTotalCarbs(): number {
