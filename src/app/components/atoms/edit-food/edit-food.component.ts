@@ -7,7 +7,9 @@ import { Component, Input } from '@angular/core';
 })
 export class EditFoodComponent {
 
-  @Input() name: string = ''
-  @Input() carbs: number = 0
+  @Input() currentEdit: {food: string, carbs: number} = {
+    'food': '',
+    'carbs': 0
+  }
 
 }

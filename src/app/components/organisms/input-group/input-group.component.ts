@@ -31,11 +31,9 @@ export class InputGroupComponent {
   }
 
   onInputEvent(event: Event, group_index: number) {
-
     let id: string  = (event.target as HTMLInputElement).id
     this.input_values[id] = (event.target as HTMLInputElement).value
     this.emitOnEvent(group_index)
-
   } 
 
   emitOnEvent(group_index: number): void{

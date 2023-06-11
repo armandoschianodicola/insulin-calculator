@@ -19,8 +19,8 @@ export class TableCalculatorComponent {
   needed: number = 150;
   correction: number = 40;
   insulinBaseValue: number = 0;
-  currentEdit: {'name': string, 'carbs': number} = {
-    'name': '',
+  currentEdit: {'food': string, 'carbs': number} = {
+    'food': '',
     'carbs': 0 
   }
 
@@ -63,7 +63,7 @@ export class TableCalculatorComponent {
       let result = this.input_array.splice(i, 1)[0];
       console.log(result)
       this.currentEdit = {
-        'name': result['food'],
+        'food': result['food'],
         'carbs': result['carbs'],
       }
     }
@@ -95,7 +95,7 @@ export class TableCalculatorComponent {
 
   getInsulinTotalValue(): number {
     let result = this.getInsulinFoodValue() + this.insulinBaseValue;
-
     return result > 0 ? result : 0;
   }
+
 }

@@ -3,8 +3,7 @@
   *ngIf="showPopup" 
   (onCloseInput)="onCloseInput()">
     <app-edit-food 
-    [name]="currentEdit.name"
-    [carbs]="currentEdit.carbs"
+    [currentEdit]="currentEdit"
     />
   </app-popup>
   <form>
