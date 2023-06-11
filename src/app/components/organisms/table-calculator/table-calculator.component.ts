@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { faL } from '@fortawesome/free-solid-svg-icons';
+import { InputGroupValues } from 'src/app/entities/input-group-values';
 
 @Component({
   selector: 'app-table-calculator',
@@ -17,6 +19,10 @@ export class TableCalculatorComponent {
   needed: number = 150;
   correction: number = 40;
   insulinBaseValue: number = 0;
+  currentEdit: {'name': string, 'carbs': number} = {
+    'name': '',
+    'carbs': 0 
+  }
 
   showPopup: boolean = false
 
@@ -37,8 +43,9 @@ export class TableCalculatorComponent {
     this.input_array.push(this.newQuantity());
   }
 
-  onInput(e: {value: number ,group_index: number, key: string}) {
-    this.input_array[e.group_index][e.key] = e.value
+  onInput(data: any): void {
+    console.log(Object.entries(data.input_values))
+    // this.input_array[e.group_index]
     this.getInsulinFoodValue()
     this.getInsulinTotalValue()
   }
@@ -50,11 +57,19 @@ export class TableCalculatorComponent {
   }
 
   editInput(i: number) {
-    this.showPopup = !this.showPopup
+    this.showPopup = true
+    if (i > -1) {
+      let result = this.input_array.splice(i, 1)[0];
+      console.log(result)
+      this.currentEdit = {
+        'name': result['food'],
+        'carbs': result['carbs'],
+      }
+    }
   }
 
-  onClosePopup() {
-    this.showPopup = !this.showPopup
+  onCloseInput() {
+    this.showPopup = false
   }
 
   getTotalCarbs(): number {

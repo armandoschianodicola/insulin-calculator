@@ -1,46 +1,22 @@
-<p>popup works!</p>
-<div class="overlay-popup">
-    <div class="scheda-container">
-      <div class="row">
-        <h4 class="title">Modifica dati</h4>
+<div class="modal">
+  <div class="modal-content">
+    <div class="flex-end">
+      <button>
         <img
           src="/assets/media/icon-close.svg"
           class="absolute"
           (click)="onClose()"
         />
-      </div>
-      <div class="body">
-      <!-- <div class="inputs-container">
-        <app-dr-input
-          (onChangeInput)="setFormTargato($event)"
-          key="plate"
-          [error]="this.errors.includes('plate')"
-          placeholder="Targa"
-          label="Targa"
-          value="{{ this.taragatoVals.plate }}"
-        ></app-dr-input>
-        <app-dr-input
-          (onChangeInput)="setFormTargato($event)"
-          key="plate_date"
-          placeholder="Data Targa"
-          label="Data Targa"
-          value="{{ this.taragatoVals.plate_date }}"
-          type="date"
-        ></app-dr-input>
-      </div> -->
-      </div>
-      <!-- <div class="row-btns">
-        <app-dr-button
-          text="Annulla"
-          class="gray-btn"
-          (click)="onClose()"
-        ></app-dr-button>
-        <app-dr-button
-          text="Conferma"
-          class="blue-btn"
-          (click)="onConfirmClick()"
-        ></app-dr-button>
-      </div> -->
+      </button>
+    </div>
+    <div>
+      <h4 class="title">Modifica dati</h4>
+    </div>
+    <div class="body">
+      <ng-content></ng-content>
+    </div>
+    <div class="flex">
+      <button (click)="onClose()">Annulla</button>
     </div>
   </div>
-  
+</div>

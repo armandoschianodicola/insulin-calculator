@@ -7,7 +7,7 @@ import { FoodOptionService } from 'src/app/services/food-option.service';
   styleUrls: ['./select-food.component.scss'],
 })
 export class SelectFoodComponent {
-  @Output() onSelectInput = new EventEmitter<any>();
+  @Output() onSelectEvent = new EventEmitter<any>();
 
   options: { label: string; value: number }[] = [];
   title = 'Alimento';
@@ -27,6 +27,9 @@ export class SelectFoodComponent {
   }
 
   onSelect(e: Event) {
-    this.onSelectInput.emit(e);
+    this.onSelectEvent.emit({
+      label: '',
+      value: (e.target as HTMLInputElement).value
+    });
   }
 }

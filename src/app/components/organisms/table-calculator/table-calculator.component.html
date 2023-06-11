@@ -1,8 +1,12 @@
 <div class="container">
-  <app-popup
-    *ngIf="showPopup"
-    (onCloseInput)="onClosePopup()"
-  ></app-popup>
+  <app-popup 
+  *ngIf="showPopup" 
+  (onCloseInput)="onCloseInput()">
+    <app-edit-food 
+    [name]="currentEdit.name"
+    [carbs]="currentEdit.carbs"
+    />
+  </app-popup>
   <form>
     <div class="grid">
       <h2>Calcolo Insulina</h2>
