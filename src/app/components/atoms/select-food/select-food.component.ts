@@ -27,8 +27,9 @@ export class SelectFoodComponent {
   }
 
   onSelect(e: Event) {
+    let options = (e.target as HTMLSelectElement).options
     this.onSelectEvent.emit({
-      label: '',
+      label: options[options.selectedIndex].innerText,
       value: (e.target as HTMLInputElement).value
     });
   }

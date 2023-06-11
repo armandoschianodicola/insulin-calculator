@@ -25,19 +25,15 @@ export class InputGroupComponent {
   }
 
   onSelectEvent(event: any) {
-
     this.input_values['carbs'] = event.value;
     this.input_values['food'] = event.label;
-    console.log(event)
     this.emitOnEvent(this.group_index)
   }
 
   onInputEvent(event: Event, group_index: number) {
 
     let id: string  = (event.target as HTMLInputElement).id
-    if (id in this.input_values){
-      this.input_values[id] = (event.target as HTMLInputElement).value
-    }
+    this.input_values[id] = (event.target as HTMLInputElement).value
     this.emitOnEvent(group_index)
 
   } 

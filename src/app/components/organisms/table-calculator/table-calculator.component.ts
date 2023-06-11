@@ -44,8 +44,9 @@ export class TableCalculatorComponent {
   }
 
   onInput(data: any): void {
-    console.log(Object.entries(data.input_values))
-    // this.input_array[e.group_index]
+    for (let prop in data.input_values){
+      this.input_array[data.group_index][prop] = data.input_values[prop]
+    }
     this.getInsulinFoodValue()
     this.getInsulinTotalValue()
   }
