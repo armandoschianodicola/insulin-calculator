@@ -60,13 +60,15 @@ export class TableCalculatorComponent {
   editInput(i: number) {
     this.showPopup = true
     if (i > -1) {
-      let result = this.input_array.splice(i, 1)[0];
+      let result = this.input_array[i];
       console.log(result)
       this.currentEdit = {
         'food': result['food'],
         'carbs': result['carbs'],
       }
+      this.input_array = this.input_array
     }
+    console.log(this.input_array)
   }
 
   onCloseInput() {
