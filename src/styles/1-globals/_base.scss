@@ -181,12 +181,22 @@
   }
 }
 
+.modal-body {
+  margin-top: 20px;
+}
+
 .show {
   display: grid;
 }
 
 .drop {
   animation: drop 0.5s ease forwards;
+}
+
+.input-edit {
+  border: 0;
+	background-color: transparent;
+	border-bottom: 2px solid #eee; 
 }
 
 /* The Close Button */
