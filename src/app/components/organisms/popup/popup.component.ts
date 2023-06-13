@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-popup',
@@ -8,6 +8,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class PopupComponent {
 
   @Output() onCloseInput = new EventEmitter<any>();
+  @Input() showPopup: boolean = false
 
 
   onClose(): void {

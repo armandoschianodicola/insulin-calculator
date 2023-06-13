@@ -1,7 +1,8 @@
 <div class="container">
   <app-popup 
-  *ngIf="showPopup" 
-  (onCloseInput)="onCloseInput()">
+  (onCloseInput)="onCloseInput()"
+  [showPopup]="showPopup"
+  >
     <app-edit-food 
     [currentEdit]="currentEdit"
     />

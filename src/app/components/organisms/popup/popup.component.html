@@ -1,5 +1,5 @@
-<div class="modal">
-  <div class="modal-content">
+<div class="modal" [ngClass]="this.showPopup ? 'show' : ''">
+  <div class="modal-content" [ngClass]="this.showPopup ? 'drop' : ''">
     <div class="flex-end">
       <button>
         <img

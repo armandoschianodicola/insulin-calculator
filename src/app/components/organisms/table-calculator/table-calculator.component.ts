@@ -61,14 +61,12 @@ export class TableCalculatorComponent {
     this.showPopup = true
     if (i > -1) {
       let result = this.input_array[i];
-      console.log(result)
       this.currentEdit = {
         'food': result['food'],
         'carbs': result['carbs'],
       }
       this.input_array = this.input_array
     }
-    console.log(this.input_array)
   }
 
   onCloseInput() {
