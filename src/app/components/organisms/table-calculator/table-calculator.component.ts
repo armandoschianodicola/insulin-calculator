@@ -19,7 +19,8 @@ export class TableCalculatorComponent {
   needed: number = 150;
   correction: number = 40;
   insulinBaseValue: number = 0;
-  currentEdit: {'food': string, 'carbs': number} = {
+  currentEdit: {'id': number, 'food': string, 'carbs': number} = {
+    'id': 0,
     'food': '',
     'carbs': 0 
   }
@@ -32,6 +33,7 @@ export class TableCalculatorComponent {
 
   newQuantity(): {} {
     return {
+      id: 0,
       food: '',
       qty: 0,
       carbs: 0,
@@ -60,10 +62,12 @@ export class TableCalculatorComponent {
   editInput(i: number) {
     this.showPopup = true
     if (i > -1) {
+      console.log(this.input_array[i])
       let result = this.input_array[i];
       this.currentEdit = {
         'food': result['food'],
         'carbs': result['carbs'],
+        'id': result['id'],
       }
       this.input_array = this.input_array
     }

@@ -1,10 +1,14 @@
 <div class="flex-column">
   <div class="flex-column">
     <label>Nome:</label>
-    <input class="input-edit" type="text" [value]="currentEdit.food">
+    <input class="input-edit" type="text" [(ngModel)]="currentEdit.food">
   </div>
   <div class="flex-column">
     <label>Carboidrati:</label>
-    <input class="input-edit" type="number" [value]="currentEdit.carbs">
+    <input class="input-edit" type="number" [(ngModel)]="currentEdit.carbs">
   </div>
+</div>
+<div class="flex">
+  <button (click)="onClose()">Annulla</button>
+  <button (click)="onSave()">Salva</button>
 </div>

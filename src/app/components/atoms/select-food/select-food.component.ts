@@ -19,7 +19,7 @@ export class SelectFoodComponent {
         data.forEach((params: any) => {
           this.options.push({
             label: params.name,
-            value: params.carbs
+            value: params.id
           })
         })      
       }

@@ -10,7 +10,6 @@ export class PopupComponent {
   @Output() onCloseInput = new EventEmitter<any>();
   @Input() showPopup: boolean = false
 
-
   onClose(): void {
     this.onCloseInput.emit()
   }

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { faPencil } from '@fortawesome/free-solid-svg-icons';
 import { InputGroupValues } from 'src/app/entities/input-group-values';
+import { FoodOptionService } from 'src/app/services/food-option.service';
 
 @Component({
   selector: 'app-input-group',
@@ -16,6 +17,10 @@ export class InputGroupComponent {
   input_values: InputGroupValues = {}
   faPencil = faPencil;
 
+  constructor(
+    private foodOptionService: FoodOptionService
+  ) {}
+
   onClick(i: number) {
     this.onClickInput.emit(i);
   }
@@ -25,9 +30,13 @@ export class InputGroupComponent {
   }
 
   onSelectEvent(event: any) {
-    this.input_values['carbs'] = event.value;
-    this.input_values['food'] = event.label;
-    this.emitOnEvent(this.group_index)
+
+    this.foodOptionService.getFood(event.value).subscribe((data: any) => {
+      this.input_values['id'] = data.id
+      this.input_values['carbs'] = data.carbs
+      this.input_values['food'] = event.label;
+      this.emitOnEvent(this.group_index)
+    })
   }
 
   onInputEvent(event: Event, group_index: number) {

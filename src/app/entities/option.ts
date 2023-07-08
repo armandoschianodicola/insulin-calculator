@@ -4,7 +4,11 @@ import { ConnectService } from '../services/connect.service';
 import { Observable } from 'rxjs';
 
 export abstract class FoodOption {
-  constructor(public name: string, public carbs: number) {}
+  constructor(
+    public id: number,
+    public name: string, 
+    public carbs: number
+    ) {}
 
   abstract get(): void;
 }
@@ -19,12 +23,13 @@ export class BackendFoodOption extends FoodOption {
   rootUrl: string = '';
  
   constructor(
+    id: number,
     name: string,
     carbs: number,
     connect: ConnectService,
     private http: HttpClient
   ) {
-    super(name, carbs);
+    super(id, name, carbs);
     this.rootUrl = connect.getRootUrl();
   }
 
@@ -40,4 +45,18 @@ export class BackendFoodOption extends FoodOption {
     });
     return result
   }
+
+  post(body: any):  Observable<FoodOption>  {
+    let url = this.rootUrl + '/food/api/' + body['food_id'];
+    let result = this.http.post<FoodOption>(url, body, {
+      headers: new HttpHeaders()
+      .set('Access-Control-Allow-Origin', '*')
+      .set('http-equiv', 'Content-Security-Policy')
+      .set('content', 'upgrade-insecure-requests'),
+      responseType: 'json',
+      withCredentials: true,
+    });
+    return result
+  }
+
 }
